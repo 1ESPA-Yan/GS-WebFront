@@ -6,6 +6,7 @@ let perfilAtualIndex = 0;
 document.addEventListener('DOMContentLoaded', () => {
     inicializarProfissionais();
     inicializarFiltros();
+    inicializarSlideshow();
 });
 
 // PROFISSIONAIS E FILTROS
@@ -129,13 +130,15 @@ function renderizarPerfilDetalhado(index) {
     const profissional = profissionais[index];
     document.getElementById('perfil-detalhado').innerHTML = `
         <div class="perfil-header">
-            <div class="perfil-foto-grande"><span>${profissional.foto}</span></div>
+            <div class="perfil-foto-grande">
+                <i data-lucide="${profissional.icone}"></i>
+            </div>
             <div class="perfil-info-basica">
                 <h2>${profissional.nome}</h2>
                 <p class="cargo-detalhado">${profissional.cargo}</p>
-                <p class="localizacao">📍 ${profissional.localizacao}</p>
-                <p class="taxa-crescimento-detalhado">📈 Taxa de Crescimento: <strong>${profissional.taxaCrescimento}%</strong> ao ano</p>
-                <p class="area-detalhado">🏢 Área: ${profissional.area}</p>
+                <p class="localizacao"><i data-lucide="map-pin"></i> ${profissional.localizacao}</p>
+                <p class="taxa-crescimento-detalhado"><i data-lucide="trending-up"></i> Taxa de Crescimento: <strong>${profissional.taxaCrescimento}%</strong> ao ano</p>
+                <p class="area-detalhado"><i data-lucide="building-2"></i> Área: ${profissional.area}</p>
             </div>
         </div>
         <div class="perfil-secao">
@@ -173,6 +176,9 @@ function renderizarPerfilDetalhado(index) {
             <button class="btn btn-secondary btn-acao">Enviar Mensagem</button>
         </div>
     `;
+    
+    // Inicializa os ícones no modal
+    lucide.createIcons();
     renderizarIndicadores();
 }
 
