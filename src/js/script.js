@@ -81,3 +81,116 @@ function filtrarProfissionais() {
 
     renderizarProfissionais(profissionaisFiltrados);
 }
+
+// SLIDESHOW 
+
+// Inicializa os event listeners do slideshow
+function inicializarSlideshow() {
+    document.querySelector('.close-modal').addEventListener('click', fecharSlideshow);
+    document.querySelector('.prev-slide').addEventListener('click', perfilAnterior);
+    document.querySelector('.next-slide').addEventListener('click', proximoPerfil);
+    
+    // Fecha o modal ao clicar fora do conteúdo
+    document.getElementById('slideshow-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'slideshow-modal') {
+            fecharSlideshow();
+        }
+    });
+}
+
+// Abre o modal no perfil do ID especificado
+function abrirSlideshow(profissionalId) {
+    perfilAtualIndex = profissionais.findIndex(p => p.id === profissionalId);
+    if (perfilAtualIndex === -1) return;
+
+    document.getElementById('slideshow-modal').style.display = 'block';
+    renderizarPerfilDetalhado(perfilAtualIndex);
+}
+
+// Fecha o modal
+function fecharSlideshow() {
+    document.getElementById('slideshow-modal').style.display = 'none';
+}
+
+// Avança para o próximo perfil (navegação circular)
+function proximoPerfil() {
+    perfilAtualIndex = (perfilAtualIndex + 1) % profissionais.length;
+    renderizarPerfilDetalhado(perfilAtualIndex);
+}
+
+// Volta para o perfil anterior (navegação circular)
+function perfilAnterior() {
+    perfilAtualIndex = (perfilAtualIndex - 1 + profissionais.length) % profissionais.length;
+    renderizarPerfilDetalhado(perfilAtualIndex);
+}
+
+// Renderiza o conteúdo completo do perfil no modal
+function renderizarPerfilDetalhado(index) {
+    const profissional = profissionais[index];
+    document.getElementById('perfil-detalhado').innerHTML = `
+        <div class="perfil-header">
+            <div class="perfil-foto-grande"><span>${profissional.foto}</span></div>
+            <div class="perfil-info-basica">
+                <h2>${profissional.nome}</h2>
+                <p class="cargo-detalhado">${profissional.cargo}</p>
+                <p class="localizacao">📍 ${profissional.localizacao}</p>
+                <p class="taxa-crescimento-detalhado">📈 Taxa de Crescimento: <strong>${profissional.taxaCrescimento}%</strong> ao ano</p>
+                <p class="area-detalhado">🏢 Área: ${profissional.area}</p>
+            </div>
+        </div>
+        <div class="perfil-secao">
+            <h3>Sobre</h3>
+            <p>${profissional.bio}</p>
+        </div>
+        <div class="perfil-secao">
+            <h3>Formação</h3>
+            <p>${profissional.formacao}</p>
+        </div>
+        <div class="perfil-secao">
+            <h3>Experiência</h3>
+            <p>${profissional.experiencia} anos de experiência profissional</p>
+        </div>
+        <div class="perfil-secao">
+            <h3>Habilidades Técnicas</h3>
+            <div class="skills-list">
+                ${profissional.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join("")}
+            </div>
+        </div>
+        <div class="perfil-secao">
+            <h3>Soft Skills</h3>
+            <div class="softskills-list">
+                ${profissional.softSkills.map(skill => `<span class="softskill-badge">${skill}</span>`).join("")}
+            </div>
+        </div>
+        <div class="perfil-secao">
+            <h3>Hobbies e Interesses</h3>
+            <div class="hobbies-list">
+                ${profissional.hobbies.map(hobby => `<span class="hobby-badge">${hobby}</span>`).join("")}
+            </div>
+        </div>
+        <div class="perfil-acoes">
+            <button class="btn btn-primary btn-acao">Recomendar Profissional</button>
+            <button class="btn btn-secondary btn-acao">Enviar Mensagem</button>
+        </div>
+    `;
+    renderizarIndicadores();
+}
+
+// Cria os indicadores de navegação (bolinhas)
+function renderizarIndicadores() {
+    const container = document.getElementById('slide-indicators');
+    container.innerHTML = "";
+    profissionais.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.className = 'indicator-dot';
+        if (index === perfilAtualIndex) {
+            dot.classList.add('active');
+        }
+        // Navega ao clicar no indicador
+        dot.addEventListener('click', () => {
+            perfilAtualIndex = index;
+            renderizarPerfilDetalhado(perfilAtualIndex);
+        });
+        container.appendChild(dot);
+    });
+}
