@@ -251,3 +251,146 @@
     border-radius: 20px;
     font-size: 0.85rem;
 }
+
+/* MODAL E SLIDESHOW */
+
+/* Overlay do modal (fundo escuro) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+}
+
+/* Container branco centralizado do modal */
+.modal-content {
+    background-color: var(--branco);
+    margin: 3% auto;
+    padding: var(--espacamento-md);
+    width: 90%;
+    max-width: 900px;
+    border-radius: var(--borda-radius-lg);
+    position: relative;
+    box-shadow: var(--sombra-forte);
+}
+
+/* Botão de fechar (X) */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cinza-medio);
+    cursor: pointer;
+}
+.close-modal:hover { color: var(--preto); }
+
+/* Botões de navegação (setas) */
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: var(--borda-radius);
+    transition: all var(--transicao-media);
+    z-index: 10;
+}
+.slide-nav:hover {
+    background-color: var(--azul-secundario);
+    transform: translateY(-50%) scale(1.1);
+}
+.prev-slide { left: -50px; }
+.next-slide { right: -50px; }
+
+/* Cabeçalho do perfil (foto + info básica) */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espacamento-md);
+    margin-bottom: var(--espacamento-md);
+    padding-bottom: var(--espacamento-md);
+    border-bottom: 2px solid var(--cinza-claro);
+}
+
+/* Foto grande do perfil */
+.perfil-foto-grande {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    flex-shrink: 0;
+}
+
+.perfil-info-basica h2 { font-size: 2rem; color: var(--preto); margin-bottom: 0.25rem; }
+.perfil-info-basica .cargo-detalhado { font-size: 1.3rem; color: var(--azul-escuro); font-weight: 600; }
+.perfil-info-basica .localizacao { color: var(--cinza-medio); }
+
+/* Seções do perfil (sobre, formação, etc) */
+.perfil-secao { margin-bottom: var(--espacamento-md); }
+.perfil-secao h3 { font-size: 1.3rem; color: var(--azul-escuro); margin-bottom: var(--espacamento-sm); }
+.perfil-secao p { color: var(--cinza-escuro); line-height: 1.8; }
+
+/* Container das badges */
+.skills-list, .softskills-list, .hobbies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Estilos das badges por tipo */
+.skill-badge, .softskill-badge, .hobby-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+.skill-badge { background-color: var(--azul-muito-claro); color: var(--azul-escuro); }
+.softskill-badge { background-color: #fef3c7; color: #92400e; } /* Amarelo */
+.hobby-badge { background-color: #ddd6fe; color: #5b21b6; } /* Roxo */
+
+/* Botões de ação do perfil */
+.perfil-acoes {
+    display: flex;
+    gap: var(--espacamento-sm);
+    margin-top: var(--espacamento-md);
+}
+.btn-acao { flex: 1; }
+
+/* Indicadores de navegação (bolinhas) */
+.slide-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: var(--espacamento-md);
+}
+
+/* Estilo das bolinhas */
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--cinza-medio);
+    cursor: pointer;
+    transition: all var(--transicao-media);
+}
+
+/* Bolinha ativa (alongada) */
+.indicator-dot.active {
+    background-color: var(--azul-escuro);
+    width: 30px;
+    border-radius: 6px;
+}
