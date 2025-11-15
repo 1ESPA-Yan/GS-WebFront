@@ -44,4 +44,34 @@
             </div>
         </div>
     </section>
+
+    <!-- seção profissionais -->
+    <section id="profissionais" class="profissionais-section">
+        <div class="container">
+            <h2 class="section-title">Conheça Nossa Comunidade</h2>
+            <p class="section-subtitle">Profissionais remotos prontos para colaborar e combater o isolamento.</p>
+            
+            <!-- filtros -->
+            <div class="filtros">
+                <input type="text" id="filtro-nome" placeholder="Buscar por nome, cargo ou skill..." class="filtro-input">
+                <select id="filtro-area" class="filtro-select">
+                    <option value="">Todas as áreas</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Design">Design</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Gestão">Gestão</option>
+                    <option value="Educação">Educação</option>
+                </select>
+            </div>
+            
+            <!-- cards (preenchidos pelo javascript) -->
+            <div id="cards-container" class="cards-grid">
+                <!-- serão inseridos dinamicamente aqui -->
+            </div>
+        </div>
+    </section>
+    <!-- importação dos ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/dados.js"></script>
 </body>
