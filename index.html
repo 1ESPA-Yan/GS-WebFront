@@ -6,7 +6,7 @@
     <meta name="description" content="Focus Together - Plataforma colaborativa para o futuro do trabalho remoto.">
     <meta name="keywords" content="trabalho remoto, pair focus, futuro do trabalho, ergonomia, bem-estar">
     <title>Focus Together - Trabalhe sozinho. Cresça junto.</title>
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
 
@@ -70,6 +70,23 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal para exibir perfis em slideshow -->
+    <div id="slideshow-modal" class="modal">
+        <!-- Container do conteúdo do modal -->
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <button class="slide-nav prev-slide">&#10094;</button>
+            <button class="slide-nav next-slide">&#10095;</button>
+            
+            <!-- Área onde o perfil detalhado será renderizado -->
+            <div id="perfil-detalhado" class="perfil-detalhado"></div>
+            
+            <!-- Indicadores de navegação (bolinhas) -->
+            <div class="slide-indicators" id="slide-indicators"></div>
+        </div>
+    </div>
+
     <!-- importação dos ícones -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="./src/js/script.js"></script>
