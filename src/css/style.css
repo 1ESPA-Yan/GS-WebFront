@@ -120,9 +120,8 @@ section:nth-child(even) { background-color: var(--cinza-claro); }
     transform: translateY(-2px);
 }
 
-/* ===========================
-   HEADER E MENU DE NAVEGAÇÃO
-   =========================== */
+/* HEADER E MENU DE NAVEGAÇÃO */
+
 #header {
     background-color: var(--branco);
     box-shadow: var(--sombra-media);
@@ -161,9 +160,8 @@ section:nth-child(even) { background-color: var(--cinza-claro); }
     color: var(--azul-escuro);
 }
 
-/* ===========
-   SEÇÃO HOME
-   =========== */
+/* SEÇÃO HOME */
+
 .hero {
     background: linear-gradient(135deg, var(--azul-muito-claro) 0%, var(--branco) 100%);
     min-height: 90vh;
@@ -231,9 +229,8 @@ section:nth-child(even) { background-color: var(--cinza-claro); }
     }
 }
 
-/* ===================
-   SEÇÃO PROFISSIONAIS
-   =================== */
+/* SEÇÃO PROFISSIONAIS */
+
 .profissionais-section {
     background-color: var(--branco);
 }
@@ -676,9 +673,7 @@ section:nth-child(even) { background-color: var(--cinza-claro); }
     font-size: 0.85rem;
 }
 
-/* ==========================
-   DASHBOARD DE MONITORAMENTO
-   ========================== */
+/* DASHBOARD DE MONITORAMENTO */
 
 .dashboard-grid {
     display: flex;

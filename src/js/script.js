@@ -207,6 +207,61 @@ function renderizarIndicadores() {
     });
 }
 
+// PAIR FOCUS (TIMER POMODORO)
+
+function inicializarPairFocus() {
+    document.getElementById('timer-btn').addEventListener('click', toggleTimer);
+    
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+}
+
+function toggleTimer() {
+    const btn = document.getElementById('timer-btn');
+    timerAtivo = !timerAtivo;
+
+    if (timerAtivo) {
+        btn.textContent = 'Pausar Sessão';
+        btn.classList.add('btn-secondary');
+        btn.classList.remove('btn-primary');
+        
+        timerInterval = setInterval(() => {
+            tempoRestante--;
+            atualizarDisplayTimer();
+            if (tempoRestante <= 0) {
+                finalizarSessao();
+            }
+        }, 1000);
+    } else {
+        btn.textContent = 'Retomar Sessão';
+        clearInterval(timerInterval);
+    }
+}
+
+function atualizarDisplayTimer() {
+    const minutos = Math.floor(tempoRestante / 60);
+    const segundos = tempoRestante % 60;
+    document.getElementById('timer-display').textContent = 
+        `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+}
+
+function finalizarSessao() {
+    clearInterval(timerInterval);
+    timerAtivo = false;
+    alert('Sessão Pomodoro de 25 minutos concluída! Hora de uma pausa de 5 minutos.');
+    tempoRestante = 25 * 60;
+    atualizarDisplayTimer();
+
+    const btn = document.getElementById('timer-btn');
+    btn.textContent = 'Iniciar Sessão';
+    btn.classList.add('btn-primary');
+    btn.classList.remove('btn-secondary');
+}
+
 // DASHBOARD (SIMULAÇÃO EDGE COMPUTING)
 
 function inicializarDashboard() {
