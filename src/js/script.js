@@ -207,6 +207,143 @@ function renderizarIndicadores() {
     });
 }
 
+
+// SEÇÃO 3: QUIZ
+
+function inicializarQuiz() {
+    renderizarQuiz();
+}
+
+// Renderiza as perguntas do quiz na página
+
+function renderizarQuiz() {
+    const container = document.getElementById('quiz-container');
+    container.innerHTML = "";
+    respostasUsuario = new Array(quizData.length).fill(null);
+
+    quizData.forEach((pergunta, index) => {
+        const perguntaDiv = document.createElement('div');
+        perguntaDiv.className = 'quiz-pergunta';
+        perguntaDiv.innerHTML = `
+            <div class="pergunta-texto">
+                <span class="pergunta-numero">${index + 1}</span>
+                <span>${pergunta.pergunta}</span>
+            </div>
+            <div class="quiz-opcoes" data-pergunta="${index}">
+                ${pergunta.opcoes.map((opcao, opcaoIndex) => `
+                    <button class="opcao-btn" data-opcao="${opcaoIndex}">${opcao}</button>
+                `).join("")}
+            </div>
+            <div class="explicacao" id="explicacao-${index}">
+                <strong>Explicação:</strong> ${pergunta.explicacao}
+            </div>
+        `;
+        container.appendChild(perguntaDiv);
+    });
+
+    const btnFinalizar = document.createElement('button');
+    btnFinalizar.id = 'btn-finalizar-quiz';
+    btnFinalizar.className = 'btn btn-primary btn-finalizar-quiz';
+    btnFinalizar.textContent = 'Finalizar Quiz';
+    btnFinalizar.disabled = true;
+    btnFinalizar.addEventListener('click', finalizarQuiz);
+    container.appendChild(btnFinalizar);
+
+    adicionarEventosQuiz();
+}
+
+// Adiciona listeners de clique aos botões de opção do quiz
+
+function adicionarEventosQuiz() {
+    document.querySelectorAll('.opcao-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const perguntaIndex = parseInt(this.closest('.quiz-opcoes').dataset.pergunta);
+            const opcaoSelecionada = parseInt(this.dataset.opcao);
+            verificarResposta(perguntaIndex, opcaoSelecionada, this);
+        });
+    });
+}
+
+// Verifica a resposta selecionada, atualiza a UI e armazena a resposta
+
+function verificarResposta(perguntaIndex, opcaoSelecionada, btnClicado) {
+    if (respostasUsuario[perguntaIndex] !== null) return;
+
+    const pergunta = quizData[perguntaIndex];
+    const respostaCorreta = pergunta.respostaCorreta;
+    respostasUsuario[perguntaIndex] = opcaoSelecionada;
+
+    const opcoesPergunta = btnClicado.closest('.quiz-opcoes').querySelectorAll('.opcao-btn');
+
+    opcoesPergunta.forEach((btn, index) => {
+        btn.classList.add('desabilitado');
+        if (index === respostaCorreta) {
+            btn.classList.add('correta');
+        }
+    });
+
+    if (opcaoSelecionada !== respostaCorreta) {
+        btnClicado.classList.add('incorreta');
+    }
+
+    document.getElementById(`explicacao-${perguntaIndex}`).classList.add('mostrar');
+    
+    if (respostasUsuario.every(r => r !== null)) {
+        document.getElementById('btn-finalizar-quiz').disabled = false;
+    }
+}
+
+// Calcula e exibe o resultado final do quiz
+
+function finalizarQuiz() {
+    let acertos = 0;
+    quizData.forEach((pergunta, index) => {
+        if (respostasUsuario[index] === pergunta.respostaCorreta) {
+            acertos++;
+        }
+    });
+
+    const porcentagem = Math.round((acertos / quizData.length) * 100);
+    let mensagem, icone;
+
+    if (porcentagem >= 80) {
+        mensagem = "Excelente! Você está muito bem informado sobre o futuro do trabalho!";
+        icone = "trophy"; //
+    } else if (porcentagem >= 60) {
+        mensagem = "Muito bom! Você conhece as principais tendências.";
+        icone = "thumbs-up";
+    } else {
+        mensagem = "Bom começo! Continue aprendendo sobre o futuro do trabalho.";
+        icone = "lightbulb";
+    }
+
+    document.getElementById('quiz-container').style.display = 'none';
+    const resultadoDiv = document.getElementById('quiz-resultado');
+    resultadoDiv.style.display = 'block';
+    resultadoDiv.innerHTML = `
+        <div class="resultado-icone">
+            <i data-lucide="${icone}"></i>
+        </div>
+        <h2 class="resultado-titulo">Quiz Concluído!</h2>
+        <div class="resultado-pontuacao">${acertos} / ${quizData.length}</div>
+        <p class="resultado-mensagem">Você acertou <strong>${porcentagem}%</strong> das questões!</p>
+        <p>${mensagem}</p>
+        <button class="btn btn-refazer-quiz" id="btn-refazer">Refazer Quiz</button>
+    `;
+
+    // Inicializa os ícones Lucide
+    lucide.createIcons();
+
+    document.getElementById('btn-refazer').addEventListener('click', refazerQuiz);
+}
+
+function refazerQuiz() {
+    document.getElementById('quiz-resultado').style.display = 'none';
+    document.getElementById('quiz-container').style.display = 'block';
+    renderizarQuiz();
+}
+
+
 // PAIR FOCUS (TIMER POMODORO)
 
 function inicializarPairFocus() {
