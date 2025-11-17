@@ -163,3 +163,57 @@ const profissionais = [
         bio: "Consultor que atende clientes via videoconferência. Reuniões virtuais não substituem conexão presencial. Isolamento profissional afeta networking e desenvolvimento."
     }
 ];
+
+
+// quiz - perguntas e respostas
+
+const quizData = [
+    {
+        pergunta: "Segundo a OIT, qual porcentagem de organizações adotará modelos híbridos permanentes até 2030?",
+        opcoes: ["30%", "50%", "70%", "90%"],
+        respostaCorreta: 2,
+        explicacao: "Estudos da OIT indicam que 70% das organizações adotarão modelos de trabalho híbridos até 2030, combinando presencial e remoto."
+    },
+    {
+        pergunta: "Qual é o principal desafio relatado por 40% dos profissionais em trabalho remoto?",
+        opcoes: ["Falta de equipamento adequado", "Isolamento profissional e solidão", "Internet instável", "Barulho excessivo"],
+        respostaCorreta: 1,
+        explicacao: "40% dos trabalhadores remotos relatam isolamento profissional como o maior desafio, afetando saúde mental e produtividade."
+    },
+    {
+        pergunta: "Qual competência humana se tornará MAIS valiosa com a automação de tarefas técnicas?",
+        opcoes: ["Programação avançada", "Criatividade e empatia", "Memorização de dados", "Digitação rápida"],
+        respostaCorreta: 1,
+        explicacao: "Com tarefas técnicas sendo automatizadas, habilidades exclusivamente humanas como criatividade, empatia e colaboração se tornam o diferencial competitivo."
+    },
+    {
+        pergunta: "Qual a distância ergonômica ideal entre os olhos e a tela do computador?",
+        opcoes: ["20-30cm", "40-60cm", "70-90cm", "Mais de 1 metro"],
+        respostaCorreta: 1,
+        explicacao: "A distância ergonômica ideal é de 40-60cm, conforme normas da ABNT. Distâncias menores ou maiores podem causar fadiga ocular e problemas posturais."
+    },
+    {
+        pergunta: "O que é a técnica Pomodoro usada no Pair Focus?",
+        opcoes: ["Uma receita italiana", "Sessões de foco de 25 minutos com pausas", "Um tipo de meditação", "Uma linguagem de programação"],
+        respostaCorreta: 1,
+        explicacao: "A técnica Pomodoro consiste em trabalhar focado por 25 minutos, seguido de uma pausa de 5 minutos, maximizando produtividade e prevenindo fadiga."
+    },
+    {
+        pergunta: "Qual ODS da ONU está relacionado a 'Trabalho Decente e Crescimento Econômico'?",
+        opcoes: ["ODS 4 - Educação", "ODS 8 - Trabalho Decente", "ODS 12 - Consumo Responsável", "ODS 16 - Paz e Justiça"],
+        respostaCorreta: 1,
+        explicacao: "O ODS 8 promove trabalho decente, crescimento econômico inclusivo e sustentável, abordando questões como condições de trabalho e bem-estar profissional."
+    },
+    {
+        pergunta: "Segundo o FocusTogether, qual é a classificação de um ambiente de trabalho com iluminação de 750 lux?",
+        opcoes: ["Bronze - Inadequado", "Prata - Adequado", "Ouro - Ideal", "Platina - Excepcional"],
+        respostaCorreta: 2,
+        explicacao: "Com 750 lux, a classificação é Ouro (ideal), pois está acima de 700 lux. Valores entre 300-700 são Prata, e abaixo de 300 são Bronze."
+    },
+    {
+        pergunta: "Qual porcentagem de tarefas repetitivas será automatizada até 2030?",
+        opcoes: ["10%", "25%", "40%", "60%"],
+        respostaCorreta: 2,
+        explicacao: "Estima-se que 40% das tarefas repetitivas serão automatizadas até 2030, exigindo requalificação profissional e foco em competências humanas."
+    }
+];
