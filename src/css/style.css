@@ -394,3 +394,170 @@
     width: 30px;
     border-radius: 6px;
 }
+
+/* ESTILOS PARA ÍCONES LUCIDE */
+ 
+.card-foto i {
+    width: 80px;
+    height: 80px;
+    color: white;
+    stroke-width: 1.5;
+}
+ 
+/* Ícone na badge de crescimento */
+.taxa-badge i {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+ 
+/* SEÇÃO PAIR FOCUS */
+ 
+.pair-focus-section {
+    background: linear-gradient(180deg, var(--branco) 0%, var(--azul-muito-claro) 100%);
+}
+.pair-focus-mockup {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--branco);
+    border-radius: var(--borda-radius-lg);
+    box-shadow: var(--sombra-forte);
+    overflow: hidden;
+}
+.mockup-header {
+    background-color: var(--cinza-claro);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--cinza-medio);
+}
+.mockup-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+.mockup-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+.mockup-dots span:nth-child(1) { background-color: #ff5f57; }
+.mockup-dots span:nth-child(2) { background-color: #ffbd2e; }
+.mockup-dots span:nth-child(3) { background-color: #28c840; }
+.mockup-title { font-weight: 600; color: var(--cinza-escuro); }
+.mockup-body {
+    padding: var(--espacamento-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-md);
+}
+.pomodoro-timer { text-align: center; }
+.timer-circle {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto var(--espacamento-md);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--azul-primario), var(--azul-escuro));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+#timer-display {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--branco);
+    font-family: 'Courier New', monospace;
+}
+.mood-checkin {
+    background-color: var(--cinza-claro);
+    padding: var(--espacamento-md);
+    border-radius: var(--borda-radius);
+    text-align: center;
+}
+.mood-checkin h4 {
+    font-size: 1.2rem;
+    color: var(--azul-escuro);
+    margin-bottom: var(--espacamento-sm);
+}
+.mood-options {
+    display: flex;
+    justify-content: center;
+    gap: var(--espacamento-sm);
+}
+.mood-btn {
+    width: 60px;
+    height: 60px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background-color: var(--branco);
+    cursor: pointer;
+    transition: all var(--transicao-media);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Ícones Lucide dentro dos botões de humor */
+.mood-btn i {
+    width: 32px;
+    height: 32px;
+    color: var(--cinza-escuro);
+    transition: color var(--transicao-media);
+}
+.mood-btn:hover {
+    transform: scale(1.2);
+    border-color: var(--azul-escuro);
+}
+.mood-btn:hover i {
+    color: var(--azul-escuro);
+}
+.mood-btn.selected {
+    border-color: var(--azul-escuro);
+    background-color: var(--azul-muito-claro);
+    transform: scale(1.15);
+}
+.mood-btn.selected i {
+    color: var(--azul-escuro);
+}
+ 
+.card-nome {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--preto);
+    margin-bottom: 0.25rem;
+}
+.card-cargo {
+    font-size: 1rem;
+    color: var(--azul-escuro);
+    margin-bottom: var(--espacamento-sm);
+    font-weight: 600;
+}
+ 
+/* Badge de taxa de crescimento */
+.card-taxa {
+    margin-bottom: var(--espacamento-sm);
+}
+.taxa-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+ 
+.card-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.skill-tag {
+    background-color: var(--azul-muito-claro);
+    color: var(--azul-escuro);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
