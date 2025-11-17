@@ -1,5 +1,9 @@
 // váriaveis
 let perfilAtualIndex = 0;
+let timerInterval = null;
+let tempoRestante = 25 * 60; // 25 minutos em segundos
+let timerAtivo = false;
+
 
 // inicialização
 
@@ -7,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarProfissionais();
     inicializarFiltros();
     inicializarSlideshow();
+    inicializarPairFocus();
+    inicializarDashboard();
 });
 
 // PROFISSIONAIS E FILTROS
@@ -199,4 +205,79 @@ function renderizarIndicadores() {
         });
         container.appendChild(dot);
     });
+}
+
+// DASHBOARD (SIMULAÇÃO EDGE COMPUTING)
+
+function inicializarDashboard() {
+    atualizarDashboard();
+    setInterval(atualizarDashboard, 5000); 
+}
+
+// Simula a leitura de sensores e atualiza a UI do dashboard
+ 
+function atualizarDashboard() {
+    // Simula dados dos sensores aleatoriamente (igual ao nosso projeto do Arduino)
+    const luz = Math.floor(Math.random() * 1024); // 0-1023 (sensor LDR)
+    const distancia = Math.floor(Math.random() * 100) + 20; // 20-120cm (sensor HC-SR04)
+
+    // Classifica os dados
+    const nivelLuz = classificarLuz(luz);
+    const nivelPostura = classificarPostura(distancia);
+
+    // Atualiza UI de Luz
+    const luzProgress = document.getElementById('luz-progress');
+    luzProgress.style.width = `${(luz / 1023) * 100}%`;
+    luzProgress.className = `progress-fill ${nivelLuz.nivel}`;
+    document.getElementById('luz-status').textContent = nivelLuz.texto;
+    document.getElementById('luz-value').textContent = `${luz} lux`;
+
+    // Atualiza UI de Postura 
+    const posturaProgress = document.getElementById('postura-progress');
+
+    // Calcula porcentagem - quanto mais perto de 50cm (ideal), maior a barra
+    const porcentagemPostura = Math.max(0, 100 - Math.abs(distancia - 50) * 2);
+    posturaProgress.style.width = `${porcentagemPostura}%`;
+    posturaProgress.className = `progress-fill ${nivelPostura.nivel}`;
+    document.getElementById('postura-status').textContent = nivelPostura.texto;
+    document.getElementById('postura-value').textContent = `${distancia}cm`;
+
+    // Atualiza Badge Geral (pior dos dois prevalece, igual ao nosso projeto no Arduino)
+    let classificacaoGeral = 'ouro';
+    if (nivelLuz.nivel === 'bronze' || nivelPostura.nivel === 'bronze') {
+        classificacaoGeral = 'bronze';
+    } else if (nivelLuz.nivel === 'prata' || nivelPostura.nivel === 'prata') {
+        classificacaoGeral = 'prata';
+    }
+
+    const badgeGeral = document.getElementById('badge-geral');
+    badgeGeral.className = `classificacao-badge ${classificacaoGeral}`;
+    document.getElementById('badge-texto').textContent = classificacaoGeral.toUpperCase();
+    
+    const recMap = {
+        ouro: "Seu ambiente está ótimo! Condições ideais de trabalho.",
+        prata: "Ambiente bom, mas pode melhorar. Ajuste luz ou postura.",
+        bronze: "Atenção! Ambiente precisa de ajustes urgentes."
+    };
+    document.getElementById('badge-rec').textContent = recMap[classificacaoGeral];
+}
+
+// Classifica nível de luminosidade
+
+function classificarLuz(valor) {
+    if (valor > 700) return { nivel: 'ouro', texto: 'Nível Ouro - Iluminação Ideal' };
+    if (valor >= 300) return { nivel: 'prata', texto: 'Nível Prata - Iluminação Adequada' };
+    return { nivel: 'bronze', texto: 'Nível Bronze - Ambiente Escuro' };
+}
+
+// Classifica nível de postura ergonômica
+
+function classificarPostura(distancia) {
+    if (distancia >= 40 && distancia <= 60) {
+        return { nivel: 'ouro', texto: 'Nível Ouro - Postura Ideal (40-60cm)' };
+    }
+    if ((distancia >= 25 && distancia < 40) || (distancia > 60 && distancia <= 80)) {
+        return { nivel: 'prata', texto: 'Nível Prata - Ajuste Recomendado' };
+    }
+    return { nivel: 'bronze', texto: 'Nível Bronze - Postura Inadequada' };
 }

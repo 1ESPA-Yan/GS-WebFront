@@ -111,13 +111,13 @@
                             <i data-lucide="smile"></i>
                         </button>
                         <button class="mood-btn" data-mood="focado">
-                            <i data-lucide="brain"></i>
+                            <i data-lucide="annoyed"></i>
                         </button>
                         <button class="mood-btn" data-mood="cansado">
-                            <i data-lucide="battery-low"></i>
+                            <i data-lucide="frown"></i>
                         </button>
-                        <button class="mood-btn" data-mood="animado">
-                            <i data-lucide="zap"></i>
+                        <button class="mood-btn" data-mood="estressado">
+                            <i data-lucide="angry"></i>
                         </button>
                     </div>
                 </div>
@@ -125,6 +125,43 @@
         </div>
     </div>
 </section>
+
+<!-- dashboard sistema de monitoramento de ambiente -->
+ 
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <h2 class="section-title">Monitoramento do Ambiente</h2>
+            <p class="section-subtitle">Edge Computing para seu bem-estar profissional.</p>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3><i data-lucide="lightbulb"></i> Luminosidade</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="luz-progress" style="width: 75%"></div>
+                    </div>
+                    <p class="status-text" id="luz-status">Nível Ouro - Excelente</p>
+                    <span class="status-value" id="luz-value">750 lux</span>
+                </div>
+                
+                <!-- Card de Ruído substituído por Postura -->
+                <div class="dashboard-card">
+                    <h3><i data-lucide="person-standing"></i> Postura Ergonômica</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="postura-progress" style="width: 75%"></div>
+                    </div>
+                    <p class="status-text" id="postura-status">Nível Ouro - Ideal</p>
+                    <span class="status-value" id="postura-value">55cm</span>
+                </div>
+                
+                <div class="dashboard-card classificacao-geral">
+                    <h3>Ambiente de Trabalho</h3>
+                    <div class="classificacao-badge ouro" id="badge-geral">
+                        <span class="badge-text" id="badge-texto">OURO</span>
+                    </div>
+                    <p class="recomendacao" id="badge-rec">Seu ambiente está ótimo!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- importação dos ícones -->
     <script src="https://unpkg.com/lucide@latest"></script>
