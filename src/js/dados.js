@@ -200,7 +200,7 @@ const quizData = [
     },
     {
         pergunta: "Qual ODS da ONU está relacionado a 'Trabalho Decente e Crescimento Econômico'?",
-        opcoes: ["ODS 4 - Educação", "ODS 8 - Trabalho Decente", "ODS 12 - Consumo Responsável", "ODS 16 - Paz e Justiça"],
+        opcoes: ["ODS 4", "ODS 8", "ODS 12", "ODS 16"],
         respostaCorreta: 1,
         explicacao: "O ODS 8 promove trabalho decente, crescimento econômico inclusivo e sustentável, abordando questões como condições de trabalho e bem-estar profissional."
     },

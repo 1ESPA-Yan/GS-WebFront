@@ -3,7 +3,7 @@ let perfilAtualIndex = 0;
 let timerInterval = null;
 let tempoRestante = 25 * 60; // 25 minutos em segundos
 let timerAtivo = false;
-
+let respostasUsuario = [];
 
 // inicialização
 
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarProfissionais();
     inicializarFiltros();
     inicializarSlideshow();
+    inicializarQuiz();
     inicializarPairFocus();
     inicializarDashboard();
 });

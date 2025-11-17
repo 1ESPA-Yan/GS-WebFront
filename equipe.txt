@@ -1,0 +1,13 @@
+Integrantes:
+
+João Victor (RM: 566640)
+Gustavo Macedo (RM: 567594)
+Yan Lucas (RM: 567046)
+
+Link do repositório:
+
+https://github.com/1ESPA-Yan/GS-WebFront
+
+Link da página hospedada:
+
+https://1espa-yan.github.io/GS-WebFront/
