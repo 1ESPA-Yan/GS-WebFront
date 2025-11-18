@@ -145,6 +145,18 @@ section:nth-child(even) {
     transform: translateY(-2px);
 }
 
+/* BOTÃO HAMBURGUER (esconder no desktop) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle i {
+    width: 30px;
+    height: 30px;
+    color: var(--texto-principal);
+}
+
 /* HEADER E MENU DE NAVEGAÇÃO */
 
 #header {
@@ -1052,9 +1064,45 @@ body.dark .taxa-badge {
     .section-subtitle { font-size: 1rem; }
 
     /* Header */
-    .navbar.container { flex-direction: column; gap: 1rem; }
-    .nav-menu { flex-direction: column; width: 100%; text-align: center; gap: 0.5rem; }
-    .nav-menu li a { display: block; padding: 0.75rem; }
+
+    .navbar.container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+}
+
+.menu-toggle i {
+    width: 30px;
+    height: 30px;
+    color: var(--texto-principal);
+}
+
+/* esconde o menu de navegação no mobile */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background-color: var(--bg-card);
+}
+
+/* mostra quando a classe .active for adicionada */
+.nav-menu.active {
+    display: flex;
+}
+
+/* ajusta botão de tema */
+.theme-toggle {
+    justify-content: center;
+    margin: 1rem 0;
+}
 
     /* Hero */
     .hero { min-height: auto; padding: 3rem 0; }

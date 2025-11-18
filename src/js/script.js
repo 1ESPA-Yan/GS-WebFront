@@ -14,6 +14,15 @@ trilho.addEventListener('click', ()=>{
     body.classList.toggle('dark')
 })
 
+// abrir e fechar o menu no mobile
+
+const toggle = document.getElementById("menu-toggle");
+const menu = document.querySelector(".nav-menu");
+
+toggle.onclick = () => {
+    menu.classList.toggle("active");
+};
+
 // inicialização
 
 document.addEventListener('DOMContentLoaded', () => {
