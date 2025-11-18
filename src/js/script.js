@@ -4,6 +4,15 @@ let timerInterval = null;
 let tempoRestante = 25 * 60; // 25 minutos em segundos
 let timerAtivo = false;
 let respostasUsuario = [];
+let trilho = document.getElementById('trilho')
+let body = document.querySelector('body')
+
+// botão de alterar tema
+
+trilho.addEventListener('click', ()=>{
+    trilho.classList.toggle('dark')
+    body.classList.toggle('dark')
+})
 
 // inicialização
 
