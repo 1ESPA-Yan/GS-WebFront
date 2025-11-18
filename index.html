@@ -100,51 +100,51 @@
         </div>
     </div>
     
-<section id="pair-focus" class="pair-focus-section">
-    <div class="container">
-        <h2 class="section-title">Pair Focus: Trabalhe Conectado</h2>
-        <p class="section-subtitle">Sessões de foco compartilhado que combatem o isolamento.</p>
+    <section id="pair-focus" class="pair-focus-section">
+        <div class="container">
+            <h2 class="section-title">Pair Focus: Trabalhe Conectado</h2>
+            <p class="section-subtitle">Sessões de foco compartilhado que combatem o isolamento.</p>
        
-        <div class="pair-focus-mockup">
-            <div class="mockup-header">
-                <div class="mockup-dots"><span></span><span></span><span></span></div>
-                <div class="mockup-title">Sessão Pair Focus</div>
-            </div>
-            <div class="mockup-body">
-                <div class="pomodoro-timer">
-                    <div class="timer-circle">
-                        <span id="timer-display">25:00</span>
-                    </div>
-                    <div class="timer-controls">
-                        <button id="timer-btn" class="btn btn-primary">Iniciar Sessão</button>
-                        <button id="timer-reset" class="btn btn-secondary">
-                            <i data-lucide="rotate-ccw"></i> Resetar
-                        </button>
-                    </div>
+            <div class="pair-focus-mockup">
+                <div class="mockup-header">
+                    <div class="mockup-dots"><span></span><span></span><span></span></div>
+                    <div class="mockup-title">Sessão Pair Focus</div>
                 </div>
-                <div class="mood-checkin">
-                    <h4>Como você está se sentindo?</h4>
-                    <div class="mood-options">
-                        <button class="mood-btn" data-mood="feliz">
-                            <i data-lucide="smile"></i>
-                        </button>
-                        <button class="mood-btn" data-mood="focado">
-                            <i data-lucide="annoyed"></i>
-                        </button>
-                        <button class="mood-btn" data-mood="cansado">
-                            <i data-lucide="frown"></i>
-                        </button>
-                        <button class="mood-btn" data-mood="estressado">
-                            <i data-lucide="angry"></i>
-                        </button>
+                <div class="mockup-body">
+                    <div class="pomodoro-timer">
+                        <div class="timer-circle">
+                            <span id="timer-display">25:00</span>
+                        </div>
+                        <div class="timer-controls">
+                            <button id="timer-btn" class="btn btn-primary">Iniciar Sessão</button>
+                            <button id="timer-reset" class="btn btn-secondary">
+                                <i data-lucide="rotate-ccw"></i> Resetar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mood-checkin">
+                        <h4>Como você está se sentindo?</h4>
+                        <div class="mood-options">
+                            <button class="mood-btn" data-mood="feliz">
+                                <i data-lucide="smile"></i>
+                            </button>
+                            <button class="mood-btn" data-mood="focado">
+                                <i data-lucide="annoyed"></i>
+                            </button>
+                            <button class="mood-btn" data-mood="cansado">
+                                <i data-lucide="frown"></i>
+                            </button>
+                            <button class="mood-btn" data-mood="estressado">
+                                <i data-lucide="angry"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- dashboard sistema de monitoramento de ambiente -->
+    <!-- dashboard sistema de monitoramento de ambiente -->
  
     <section id="dashboard" class="dashboard-section">
         <div class="container">
@@ -160,7 +160,7 @@
                     <span class="status-value" id="luz-value">750 lux</span>
                 </div>
                 
-                <!-- Card de Ruído substituído por Postura -->
+                <!-- Card de Postura -->
                 <div class="dashboard-card">
                     <h3><i data-lucide="person-standing"></i> Postura Ergonômica</h3>
                     <div class="progress-bar">
@@ -177,10 +177,141 @@
                     </div>
                     <p class="recomendacao" id="badge-rec">Seu ambiente está ótimo!</p>
                 </div>
+
+                <!-- gráfico -->
+
+                <div class="dashboard-card dashboard-historico">
+                    <h3><i data-lucide="activity"></i> Histórico Semanal</h3>
+                    <svg id="grafico-historico" class="grafico-svg"></svg>
+                    <div class="legenda-historico">
+                        <div class="legenda-item">
+                            <span class="legenda-cor-luz"></span>
+                            <span>Luminosidade</span>
+                        </div>
+                        <div class="legenda-item">
+                            <span class="legenda-cor-postura"></span>
+                            <span>Postura</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- CONQUISTAS -->
+    <section id="conquistas" class="conquistas-section">
+        <div class="container">
+            <h2 class="section-title">Suas Conquistas</h2>
+            <p class="section-subtitle">Progresso na jornada colaborativa do trabalho remoto</p>
+        
+            <div class="conquistas-grid">
+               <!-- conquista study buddy -->
+               <div class="badge-card desbloqueado">
+                    <div class="badge-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3 class="badge-nome">Study Buddy</h3>
+                    <p class="badge-descricao">Complete 10 sessões de Pair Focus</p>
+                    <div class="badge-progresso">
+                        <div class="progresso-barra">
+                            <div class="progresso-fill" style="width: 70%"></div>
+                        </div>
+                        <span class="progresso-texto">7/10 sessões</span>
+                    </div>
+                    <span class="badge-status desbloqueado-label">Em Progresso</span>
+                </div>
+
+                <!-- conquista foco zen -->
+                <div class="badge-card desbloqueado">
+                    <div class="badge-icon zen">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="badge-nome">Foco Zen</h3>
+                    <p class="badge-descricao">Mantenha 7 dias consecutivos com ambiente Ouro</p>
+                    <div class="badge-progresso">
+                        <div class="progresso-barra">
+                            <div class="progresso-fill ouro" style="width: 100%"></div>
+                        </div>
+                        <span class="progresso-texto">7/7 dias ⭐</span>
+                    </div>
+                    <span class="badge-status conquistado">Conquistado!</span>
+                </div>
+
+                <!-- conquista mentor emergente -->
+                <div class="badge-card">
+                    <div class="badge-icon bloqueado">
+                        <i data-lucide="graduation-cap"></i>
+                    </div>
+                    <h3 class="badge-nome">Mentor Emergente</h3>
+                    <p class="badge-descricao">Ajude 5 profissionais júnior em mentorias</p>
+                    <div class="badge-progresso">
+                        <div class="progresso-barra">
+                            <div class="progresso-fill" style="width: 40%"></div>
+                        </div>
+                        <span class="progresso-texto">2/5 mentorias</span>
+                    </div>
+                    <span class="badge-status">Em Progresso</span>
+                </div>
+
+                <!-- conquista conector de talentos -->
+                <div class="badge-card">
+                    <div class="badge-icon bloqueado">
+                        <i data-lucide="network"></i>
+                    </div>
+                    <h3 class="badge-nome">Conector de Talentos</h3>
+                    <p class="badge-descricao">Indique 10 profissionais para Pair Focus</p>
+                    <div class="badge-progresso">
+                        <div class="progresso-barra">
+                            <div class="progresso-fill" style="width: 50%"></div>
+                        </div>
+                        <span class="progresso-texto">5/10 indicações</span>
+                    </div>
+                    <span class="badge-status">Em Progresso</span>
+                </div>
+
+                <!-- conquista guardião da ergonomia -->
+                <div class="badge-card desbloqueado">
+                    <div class="badge-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3 class="badge-nome">Guardião da Ergonomia</h3>
+                    <p class="badge-descricao">Mantenha postura ideal por 30 dias</p>
+                    <div class="badge-progresso">
+                        <div class="progresso-barra">
+                            <div class="progresso-fill" style="width: 83%"></div>
+                        </div>
+                        <span class="progresso-texto">25/30 dias</span>
+                    </div>
+                    <span class="badge-status">Quase lá!</span>
+                </div>
+            </div>
+
+            <!-- resumo conquistas -->
+            <div class="conquistas-resumo">
+                <div class="resumo-item">
+                    <i data-lucide="award"></i>
+                    <div>
+                        <span class="resumo-numero">2</span>
+                        <span class="resumo-label">Conquistadas</span>
+                    </div>
+                </div>
+                <div class="resumo-item">
+                    <i data-lucide="target"></i>
+                    <div>
+                        <span class="resumo-numero">4</span>
+                        <span class="resumo-label">Em Progresso</span>
+                    </div>
+                </div>
+                <div class="resumo-item">
+                    <i data-lucide="trending-up"></i>
+                    <div>
+                        <span class="resumo-numero">67%</span>
+                        <span class="resumo-label">Conclusão Média</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="quiz" class="quiz-section">
         <div class="container">
