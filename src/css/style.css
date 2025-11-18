@@ -313,14 +313,29 @@ section:nth-child(even) {
     height: 85%;
     border-radius: 50%;
     background: radial-gradient(circle, var(--azul-primario) 0%, var(--azul-secundario) 50%, var(--azul-escuro) 100%);
-    animation: pulse 3s ease-in-out infinite;
+    animation: pulse 4.5s ease-in-out infinite;
     box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+    position: absolute;
+    top: 35px;
+}
+
+.illustration-circle2 {
+    width: 45%;
+    height: 45%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);
+    animation: pulse 6s ease-in-out infinite;
+    opacity: 0.8;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+    position: absolute;
+    top: 10px;
+    left: 200px;
 }
 
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
-        opacity: 0.8;
+        opacity: 1;
     }
     50% {
         transform: scale(1.05);
@@ -687,6 +702,24 @@ body.dark .taxa-badge {
     font-weight: bold;
     color: #ffffff;
     font-family: 'Courier New', monospace;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.timer-controls .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timer-controls .btn i {
+    width: 20px;
+    height: 20px;
 }
 
 .mood-checkin {

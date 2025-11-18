@@ -367,6 +367,7 @@ function refazerQuiz() {
 
 function inicializarPairFocus() {
     document.getElementById('timer-btn').addEventListener('click', toggleTimer);
+    document.getElementById('timer-reset').addEventListener('click', resetarTimer);
     
     document.querySelectorAll('.mood-btn').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -374,6 +375,20 @@ function inicializarPairFocus() {
             this.classList.add('selected');
         });
     });
+}
+
+// função para resetar o timer
+
+function resetarTimer() {
+    clearInterval(timerInterval);
+    timerAtivo = false;
+    tempoRestante = 25 * 60;
+    atualizarDisplayTimer();
+    
+    const btn = document.getElementById('timer-btn');
+    btn.textContent = 'Iniciar Sessão';
+    btn.classList.add('btn-primary');
+    btn.classList.remove('btn-secondary');
 }
 
 function toggleTimer() {
