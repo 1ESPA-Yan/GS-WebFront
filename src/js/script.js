@@ -615,3 +615,41 @@ function desenharGraficoHistorico() {
         svg.innerHTML += `<text x="${x}" y="${height - 15}" text-anchor="middle" font-size="15" fill="#9ca3af" font-weight="600">${dia}</text>`;
     });
 }
+
+// função que realiza a ação de mudar de aba
+function mudarAba(aba) {
+    // remove active de todos os botões e conteúdos
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    // adiciona active na aba que foi clicada
+    event.target.classList.add('active');
+    document.getElementById(aba).classList.add('active');
+}
+
+// função para mostrar a trilha
+function mostrarTrilha(profissao) {
+    alert(`Trilha de ${profissao}\n\n` +
+            `Etapa 1: Fundamentos (2-3 meses)\n` +
+            `Etapa 2: Prática Intermediária (3-4 meses)\n` +
+            `Etapa 3: Projetos Avançados (4-6 meses)\n` +
+            `Etapa 4: Portfólio Profissional (2-3 meses)\n\n` +
+            `Conecte-se com outros profissionais estudando ${profissao}!`);
+}
+
+// função para iniciar o match
+function iniciarMatch(nome) {
+    document.getElementById('nome-match').textContent = nome;
+    document.getElementById('modal').classList.add('active');
+}
+
+// função para fechar modal
+function fecharModal() {
+    document.getElementById('modal').classList.remove('active');
+}
+
+// função para confirmar match
+function confirmarMatch() {
+    alert('Sessão Pair Focus iniciada!\n\nTimer de 25 minutos começou.\nBom trabalho colaborativo!');
+    fecharModal();
+}

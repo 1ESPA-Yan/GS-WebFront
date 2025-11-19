@@ -26,6 +26,7 @@
                 <li><a href="#pair-focus">Pair Focus</a></li>
                 <li><a href="#dashboard">Monitoramento</a></li>
                 <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#trilhas-matching">Trilhas & Matching</a></li>
             </ul>
             <!-- botão de alterar tema -->
             <div class="theme-toggle">
@@ -323,6 +324,212 @@
             <div id="quiz-resultado" class="quiz-resultado" style="display: none;"></div>
         </div>
     </section>
+    
+    <!-- TRILHAS E MATCHING -->
+
+    <section id="trilhas-matching" class="trilhas-matching-section">
+        <div class="container">
+            <h1 class="section-title">Carreira do Amanhã</h1>
+            <p class="section-subtitle">Explore profissões emergentes e conecte-se para pair focus</p>
+
+            <!-- navegação entre as duas abas -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="mudarAba('trilhas')">
+                    <i data-lucide="messages-square"></i> Trilhas de Profissões
+                </button>
+                <button class="tab-btn" onclick="mudarAba('matching')">
+                    <i data-lucide="users-round"></i> Pair Focus Matching
+                </button>
+            </div>
+
+            <!-- trilhas de profissões -->
+            <div id="trilhas" class="tab-content active">
+                <div class="cards-grid">
+                    <!-- primeiro card -->
+                    <div class="profissao-card">
+                        <span class="badge-crescimento"><i data-lucide="trending-up"></i> +300% crescimento</span>
+                        <h3 class="profissao-nome">Desenvolvedor de IA</h3>
+                        <p class="profissao-descricao">Cria sistemas de inteligência artificial e machine learning</p>
+                        <div class="profissao-info">
+                            <div>Salário: R$ 12.000 - R$ 25.000</div>
+                            <div>Tempo: 12-18 meses</div>
+                            <div>8 profissionais estudando</div>
+                        </div>
+                        <div class="skills-mini">
+                            <span class="skill-mini">Python</span>
+                            <span class="skill-mini">TensorFlow</span>
+                            <span class="skill-mini">PyTorch</span>
+                        </div>
+                        <button class="btn-trilha" onclick="mostrarTrilha('IA')">Ver Trilha Completa →</button>
+                    </div>
+
+                    <!-- segundo card -->
+                    <div class="profissao-card">
+                        <span class="badge-crescimento"><i data-lucide="trending-up"></i> +250% crescimento</span>
+                        <h3 class="profissao-nome">Especialista em Ética de IA</h3>
+                        <p class="profissao-descricao">Garante uso ético e responsável de sistemas de IA</p>
+                        <div class="profissao-info">
+                            <div>Salário: R$ 10.000 - R$ 20.000</div>
+                            <div>Tempo: 9-12 meses</div>
+                            <div>5 profissionais estudando</div>
+                        </div>
+                        <div class="skills-mini">
+                            <span class="skill-mini">Governança</span>
+                            <span class="skill-mini">LGPD</span>
+                            <span class="skill-mini">Compliance</span>
+                        </div>
+                        <button class="btn-trilha" onclick="mostrarTrilha('Ética')">Ver Trilha Completa →</button>
+                    </div>
+
+                    <!-- terceiro card -->
+                    <div class="profissao-card">
+                        <span class="badge-crescimento"><i data-lucide="trending-up"></i> +180% crescimento</span>
+                        <h3 class="profissao-nome">Engenheiro de Energia Renovável</h3>
+                        <p class="profissao-descricao">Projeta sistemas de energia limpa e sustentável</p>
+                        <div class="profissao-info">
+                            <div>Salário: R$ 8.000 - R$ 18.000</div>
+                            <div>Tempo: 15-24 meses</div>
+                            <div>6 profissionais estudando</div>
+                        </div>
+                        <div class="skills-mini">
+                            <span class="skill-mini">Energia Solar</span>
+                            <span class="skill-mini">IoT</span>
+                            <span class="skill-mini">Sustentabilidade</span>
+                        </div>
+                        <button class="btn-trilha" onclick="mostrarTrilha('Energia')">Ver Trilha Completa →</button>
+                    </div>
+
+                    <!-- quarto card -->
+                    <div class="profissao-card">
+                        <span class="badge-crescimento"><i data-lucide="trending-up"></i> +150% crescimento</span>
+                        <h3 class="profissao-nome">Designer de Experiência Remota</h3>
+                        <p class="profissao-descricao">Cria experiências imersivas para trabalho remoto</p>
+                        <div class="profissao-info">
+                            <div>Salário: R$ 7.000 - R$ 15.000</div>
+                            <div>Tempo: 8-12 meses</div>
+                            <div>4 profissionais estudando</div>
+                        </div>
+                        <div class="skills-mini">
+                            <span class="skill-mini">UX/UI</span>
+                            <span class="skill-mini">VR</span>
+                            <span class="skill-mini">Design Thinking</span>
+                        </div>
+                        <button class="btn-trilha" onclick="mostrarTrilha('Designer')">Ver Trilha Completa →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- matching -->
+            <div id="matching" class="tab-content">
+                <div class="cards-grid">
+                    <!-- primeiro card -->
+                    <div class="match-card">
+                        <div class="match-header">
+                            <div>
+                                <div class="match-nome">Marina Chen</div>
+                                <div class="match-cargo">Desenvolvedora de IA Generativa</div>
+                            </div>
+                            <div class="status-online">
+                                <span class="status-dot"></span>
+                                Online
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div>Nível: <span class="nivel-badge nivel-senior">Senior</span></div>
+                            <div>Objetivo: Mentorar júniores em IA</div>
+                            <div>Disponível: Manhã (9h-12h)</div>
+                            <div>Interesses: Python, TensorFlow, Machine Learning</div>
+                        </div>
+                        <button class="btn-matching" onclick="iniciarMatch('Marina Chen')"><i data-lucide="zap"></i> Iniciar Pair Focus</button>
+                    </div>
+
+                    <!-- segundo card -->
+                    <div class="match-card">
+                        <div class="match-header">
+                            <div>
+                                <div class="match-nome">Ricardo Almeida</div>
+                                <div class="match-cargo">Especialista em Ética de IA</div>
+                            </div>
+                            <div class="status-online">
+                                <span class="status-dot"></span>
+                                Online
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div>Nível: <span class="nivel-badge nivel-senior">Senior</span></div>
+                            <div>Objetivo: Compartilhar experiências em ética</div>
+                            <div>Disponível: Tarde (14h-17h)</div>
+                            <div>Interesses: Governança, LGPD, Compliance</div>
+                        </div>
+                        <button class="btn-matching" onclick="iniciarMatch('Ricardo Almeida')"><i data-lucide="zap"></i> Iniciar Pair Focus</button>
+                    </div>
+
+                    <!-- terceiro card -->
+                    <div class="match-card">
+                        <div class="match-header">
+                            <div>
+                                <div class="match-nome">Ana Silva</div>
+                                <div class="match-cargo">Desenvolvedora de Software</div>
+                            </div>
+                            <div class="status-online">
+                                <span class="status-dot"></span>
+                                Online
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div>Nível: <span class="nivel-badge nivel-pleno">Pleno</span></div>
+                            <div>Objetivo: Aprender IA e fazer networking</div>
+                            <div>Disponível: Noite (19h-22h)</div>
+                            <div>Interesses: JavaScript, React, Node.js</div>
+                        </div>
+                        <button class="btn-matching" onclick="iniciarMatch('Ana Silva')"><i data-lucide="zap"></i> Iniciar Pair Focus</button>
+                    </div>
+
+                    <!-- quarto card -->
+                    <div class="match-card">
+                        <div class="match-header">
+                            <div>
+                                <div class="match-nome">Lucas Martins</div>
+                                <div class="match-cargo">Designer de Experiência Remota</div>
+                            </div>
+                            <div class="status-online">
+                                <span class="status-dot"></span>
+                                Online
+                            </div>
+                        </div>
+                        <div class="match-info">
+                            <div>Nível: <span class="nivel-badge nivel-junior">Junior</span></div>
+                            <div>Objetivo: Aprender com profissionais experientes</div>
+                            <div>Disponível: Tarde (14h-17h)</div>
+                            <div>Interesses: UX/UI, VR, Design Thinking</div>
+                        </div>
+                        <button class="btn-matching" onclick="iniciarMatch('Lucas Martins')"><i data-lucide="zap"></i> Iniciar Pair Focus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal para confirmação -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">✓</div>
+                    <h2 class="modal-title">Match Confirmado!</h2>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: center; color: #4b5563; margin-bottom: 1rem;">
+                        Você vai fazer Pair Focus com <strong id="nome-match"></strong>
+                    </p>
+                    <div style="font-size: 0.9rem; color: #6b7280;">
+                        <div style="margin-bottom: 0.5rem;">Duração: 25 minutos (Pomodoro)</div>
+                        <div>Sessão de foco colaborativo</div>
+                    </div>
+                </div>
+                <button class="btn-confirmar" onclick="confirmarMatch()">Começar Agora</button>
+                <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container footer-content">
@@ -338,6 +545,7 @@
                     <li><a href="#pair-focus">Pair Focus</a></li>
                     <li><a href="#dashboard">Monitoramento</a></li>
                     <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#trilhas-matching">Trilhas & Matching</a></li>
                 </ul>
             </div>
         </div>
