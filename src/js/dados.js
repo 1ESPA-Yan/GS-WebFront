@@ -36,22 +36,6 @@ const profissionais = [
     },
     {
         id: 3,
-        nome: "Beatriz Costa",
-        cargo: "Analista de Dados",
-        profissao: "Analista de Dados",
-        area: "Tecnologia",
-        icone: "bar-chart-3",
-        taxaCrescimento: 80.0,
-        skills: ["Python", "SQL", "Power BI", "Excel Avançado", "Estatística"],
-        softSkills: ["Pensamento analítico", "Curiosidade", "Organização"],
-        experiencia: 6,
-        formacao: "Estatística - USP",
-        localizacao: "Belo Horizonte, MG",
-        hobbies: ["Podcasts de dados", "Corrida", "Leitura"],
-        bio: "Analista que passa longas horas analisando dados em ambiente com iluminação artificial. Pouca interação social diária gera sensação de isolamento. Busca comunidades para networking."
-    },
-    {
-        id: 4,
         nome: "Daniel Oliveira",
         cargo: "Redator de Conteúdo",
         profissao: "Redator de Conteúdo",
@@ -67,7 +51,7 @@ const profissionais = [
         bio: "Redator freelancer que trabalha isolado criando conteúdo. Má postura ao escrever por horas causa desconforto. Sente falta de feedback imediato e brainstorming presencial."
     },
     {
-        id: 5,
+        id: 4,
         nome: "Eduarda Santos",
         cargo: "Tradutora Remota",
         profissao: "Tradutor/Intérprete Remoto",
@@ -83,23 +67,7 @@ const profissionais = [
         bio: "Tradutora que trabalha sozinha em projetos de localização. Concentração intensa por horas em ambiente pouco iluminado. Isolamento profissional é desafio constante."
     },
     {
-        id: 6,
-        nome: "Felipe Rodrigues",
-        cargo: "Especialista em Cibersegurança",
-        profissao: "Especialista em Cibersegurança",
-        area: "Tecnologia",
-        icone: "shield",
-        taxaCrescimento: 90.0,
-        skills: ["Pentest", "Network Security", "Python", "Linux", "Análise de Vulnerabilidades"],
-        softSkills: ["Atenção aos detalhes", "Pensamento crítico", "Discrição"],
-        experiencia: 8,
-        formacao: "Segurança da Informação",
-        localizacao: "São Paulo, SP",
-        hobbies: ["CTF", "Hacking ético", "Café"],
-        bio: "Especialista que monitora sistemas em turnos noturnos. Trabalho solo em ambientes escuros analisando logs. Isolamento extremo devido à natureza confidencial do trabalho."
-    },
-    {
-        id: 7,
+        id: 5,
         nome: "Gabriela Lima",
         cargo: "Contadora Digital",
         profissao: "Contador Digital",
@@ -115,23 +83,7 @@ const profissionais = [
         bio: "Contadora que atende clientes remotamente. Trabalho repetitivo e solitário fechando balanços. Longas horas na tela com pouca interação humana causam fadiga mental."
     },
     {
-        id: 8,
-        nome: "Henrique Alves",
-        cargo: "Suporte Técnico Remoto",
-        profissao: "Suporte Técnico Remoto",
-        area: "Tecnologia",
-        icone: "headphones",
-        taxaCrescimento: 55.0,
-        skills: ["Troubleshooting", "Windows/Linux", "Atendimento", "Ticketing", "Redes"],
-        softSkills: ["Paciência", "Comunicação", "Empatia"],
-        experiencia: 4,
-        formacao: "Técnico em Informática",
-        localizacao: "Recife, PE",
-        hobbies: ["Games", "Tecnologia", "Streaming"],
-        bio: "Atende tickets remotamente em home office. Estresse do atendimento isolado sem suporte da equipe. Condições de trabalho variáveis (iluminação, ergonomia) afetam desempenho."
-    },
-    {
-        id: 9,
+        id: 6,
         nome: "Isabela Ferreira",
         cargo: "Social Media Manager",
         profissao: "Social Media Manager",
@@ -147,7 +99,7 @@ const profissionais = [
         bio: "Gerencia redes sociais 24/7 de forma remota. Pressão constante e trabalho solitário geram estresse. Postura inadequada usando celular por horas causa problemas."
     },
     {
-        id: 10,
+        id: 7,
         nome: "João Pedro",
         cargo: "Consultor de Negócios Online",
         profissao: "Consultor de Negócios Online",
@@ -161,6 +113,86 @@ const profissionais = [
         localizacao: "Fortaleza, CE",
         hobbies: ["Networking", "Leitura", "Golfe"],
         bio: "Consultor que atende clientes via videoconferência. Reuniões virtuais não substituem conexão presencial. Isolamento profissional afeta networking e desenvolvimento."
+    },
+    {
+        id: 8,
+        nome: "Marina Chen",
+        cargo: "Desenvolvedora de IA Generativa",
+        profissao: "Desenvolvedor de IA",
+        area: "Tecnologia",
+        icone: "brain",
+        taxaCrescimento: 300.0,
+        skills: ["Python", "TensorFlow", "PyTorch", "NLP", "Machine Learning"],
+        softSkills: ["Pensamento crítico", "Ética", "Inovação"],
+        experiencia: 4,
+        formacao: "Ciência da Computação + IA - MIT",
+        localizacao: "São Paulo, SP",
+        hobbies: ["Pesquisa acadêmica", "Debates de ética", "Xadrez"],
+        bio: "Especialista em IA Generativa trabalhando com LLMs e modelos de difusão. Lidera projetos de automação ética e busca colaboração com profissionais de áreas diversas para aplicações responsáveis de IA."
+    },
+    {
+        id: 9,
+        nome: "Ricardo Almeida",
+        cargo: "Especialista em Ética de IA",
+        profissao: "Especialista em Ética de IA",
+        area: "Tecnologia",
+        icone: "shield-check",
+        taxaCrescimento: 250.0,
+        skills: ["Auditoria de Algoritmos", "Governança de Dados", "LGPD", "Bias Detection", "Compliance"],
+        softSkills: ["Pensamento crítico", "Comunicação", "Mediação"],
+        experiencia: 6,
+        formacao: "Direito Digital + Filosofia",
+        localizacao: "Brasília, DF",
+        hobbies: ["Filosofia", "Política digital", "Podcasts"],
+        bio: "Atua na interseção entre tecnologia e sociedade, garantindo que sistemas de IA sejam justos e transparentes. Trabalha remotamente auditando algoritmos e desenvolvendo frameworks éticos para empresas tech."
+    },
+    {
+        id: 10,
+        nome: "Camila Ferreira",
+        cargo: "Engenheira de Energia Renovável",
+        profissao: "Engenheiro de Energia Renovável",
+        area: "Tecnologia",
+        icone: "sun",
+        taxaCrescimento: 180.0,
+        skills: ["Energia Solar", "Eólica", "Sistemas Fotovoltaicos", "IoT", "Sustentabilidade"],
+        softSkills: ["Resolução de problemas", "Sustentabilidade", "Inovação"],
+        experiencia: 5,
+        formacao: "Engenharia Elétrica - UNICAMP",
+        localizacao: "Campinas, SP",
+        hobbies: ["Sustentabilidade", "Trilhas", "DIY Solar"],
+        bio: "Projeta sistemas de energia limpa para comunidades remotas. Trabalha de forma descentralizada monitorando instalações via IoT. Busca conexões com engenheiros e desenvolvedores para soluções integradas."
+    },
+    {
+        id: 11,
+        nome: "Lucas Martins",
+        cargo: "Designer de Experiência Remota",
+        profissao: "Designer de Experiência Remota",
+        area: "Design",
+        icone: "layout",
+        taxaCrescimento: 150.0,
+        skills: ["UX/UI", "Realidade Virtual", "Metaverso", "Colaboração Remota", "Design Thinking"],
+        softSkills: ["Empatia", "Criatividade", "Colaboração"],
+        experiencia: 3,
+        formacao: "Design de Interação - ESPM",
+        localizacao: "São Paulo, SP",
+        hobbies: ["VR Gaming", "Arte digital", "Eventos tech"],
+        bio: "Especializado em criar experiências imersivas para trabalho remoto. Projeta ambientes virtuais de co-working e interfaces que promovem conexão humana. Sofre com isolamento e busca pair focus regular."
+    },
+    {
+        id: 12,
+        nome: "Paula Rodrigues",
+        cargo: "Cientista de Dados Climáticos",
+        profissao: "Analista de Dados",
+        area: "Tecnologia",
+        icone: "cloud-rain",
+        taxaCrescimento: 165.0,
+        skills: ["Python", "R", "Modelagem Climática", "Big Data", "Visualização"],
+        softSkills: ["Pensamento analítico", "Comunicação científica", "Advocacy"],
+        experiencia: 7,
+        formacao: "Meteorologia + Data Science - USP",
+        localizacao: "Rio de Janeiro, RJ",
+        hobbies: ["Ativismo climático", "Fotografia natureza", "Ciência cidadã"],
+        bio: "Analisa padrões climáticos para previsões de longo prazo e apoio a políticas públicas. Trabalha remotamente com grandes volumes de dados. Isolamento é desafio, mas encontra propósito na missão."
     }
 ];
 

@@ -520,8 +520,11 @@ function desenharGraficoHistorico() {
     if (!svg) return;
 
     const width = 1100;
-    const height = 300;
-    const padding = 60;
+    const height = 350;
+    const paddingLeft = 70;
+    const paddingRight = 70;
+    const paddingTop = 40;
+    const paddingBottom = 50;
     
     // dados simulados dos dias da semana
     const dias = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
@@ -534,65 +537,81 @@ function desenharGraficoHistorico() {
     // limpar conteúdo anterior
     svg.innerHTML = '';
     
-    // calcular posição Y
-    const calcY = (value, max) => height - padding - ((value / max) * (height - 2 * padding));
-    const calcX = (index, total) => padding + ((width - 2 * padding) / (total - 1)) * index;
+    // calcula Y para luminosidade (0-1023)
+    const calcYLuz = (value) => {
+        const max = 1023;
+        return paddingTop + ((max - value) / max) * (height - paddingTop - paddingBottom);
+    };
     
-    // grid horizontal
+    // calcula Y para postura (20-120)
+    const calcYPostura = (value) => {
+        const min = 20;
+        const max = 120;
+        return paddingTop + ((max - value) / (max - min)) * (height - paddingTop - paddingBottom);
+    };
+    
+    // calcula posição X
+    const calcX = (index, total) => {
+        return paddingLeft + ((width - paddingLeft - paddingRight) / (total - 1)) * index;
+    };
+    
+    // grid horizontal (linhas do fundo)
     for (let i = 0; i <= 4; i++) {
-        const y = padding + (i * (height - 2 * padding) / 4);
-        svg.innerHTML += `<line x1="${padding}" y1="${y}" x2="${width - padding}" y2="${y}" stroke="#e5e7eb" stroke-width="1"/>`;
+        const y = paddingTop + (i * (height - paddingTop - paddingBottom) / 4);
+        svg.innerHTML += `<line x1="${paddingLeft}" y1="${y}" x2="${width - paddingRight}" y2="${y}" stroke="#374151" stroke-width="1" opacity="0.3"/>`;
     }
     
+    // eixo Y esquerdo - Luminosidade
+    svg.innerHTML += `<text x="20" y="${height/2}" text-anchor="middle" font-size="14" fill="#fbbf24" font-weight="700" transform="rotate(-90, 20, ${height/2})">Luminosidade (lux)</text>`;
+    
+    const valoresLuz = [1000, 750, 500, 250, 0];
+    valoresLuz.forEach((valor) => {
+        const y = calcYLuz(valor);
+        svg.innerHTML += `<text x="${paddingLeft - 15}" y="${y + 5}" text-anchor="end" font-size="13" fill="#fbbf24" font-weight="600">${valor}</text>`;
+    });
+    
+    // eixo Y direito - Postura
+    svg.innerHTML += `<text x="${width - 20}" y="${height/2}" text-anchor="middle" font-size="14" fill="#3b82f6" font-weight="700" transform="rotate(90, ${width - 20}, ${height/2})">Postura (cm)</text>`;
+    
+    const valoresPostura = [120, 90, 60, 30];
+    valoresPostura.forEach((valor) => {
+        const y = calcYPostura(valor);
+        svg.innerHTML += `<text x="${width - paddingRight + 10}" y="${y + 5}" text-anchor="start" font-size="13" fill="#3b82f6" font-weight="600">${valor}</text>`;
+    });
+    
     // linha de luminosidade
-    let pathLuz = `M ${calcX(0, 7)} ${calcY(luzData[0], 1000)}`;
+    let pathLuz = `M ${calcX(0, 7)} ${calcYLuz(luzData[0])}`;
     for (let i = 1; i < luzData.length; i++) {
-        pathLuz += ` L ${calcX(i, 7)} ${calcY(luzData[i], 1000)}`;
+        pathLuz += ` L ${calcX(i, 7)} ${calcYLuz(luzData[i])}`;
     }
     svg.innerHTML += `<path d="${pathLuz}" stroke="#fbbf24" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
     
     // pontos de luminosidade
     luzData.forEach((value, i) => {
         const x = calcX(i, 7);
-        const y = calcY(value, 1000);
-        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="6" fill="#fbbf24"/>`;
-        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="3" fill="#ffffff"/>`;
+        const y = calcYLuz(value);
+        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="7" fill="#fbbf24"/>`;
+        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="3" fill="#1f2937"/>`;
     });
     
-    // ;inha de postura
-    let pathPostura = `M ${calcX(0, 7)} ${calcY(posturaData[0], 100)}`;
+    // linha de postura
+    let pathPostura = `M ${calcX(0, 7)} ${calcYPostura(posturaData[0])}`;
     for (let i = 1; i < posturaData.length; i++) {
-        pathPostura += ` L ${calcX(i, 7)} ${calcY(posturaData[i], 100)}`;
+        pathPostura += ` L ${calcX(i, 7)} ${calcYPostura(posturaData[i])}`;
     }
     svg.innerHTML += `<path d="${pathPostura}" stroke="#3b82f6" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
     
     // pontos de postura
     posturaData.forEach((value, i) => {
         const x = calcX(i, 7);
-        const y = calcY(value, 100);
-        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="6" fill="#3b82f6"/>`;
-        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="3" fill="#ffffff"/>`;
+        const y = calcYPostura(value);
+        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="7" fill="#3b82f6"/>`;
+        svg.innerHTML += `<circle cx="${x}" cy="${y}" r="3" fill="#1f2937"/>`;
     });
     
-    // labels dos dias
+    // label dos dias
     dias.forEach((dia, i) => {
         const x = calcX(i, 7);
-        svg.innerHTML += `<text x="${x}" y="${height - 15}" text-anchor="middle" font-size="14" fill="#6b7280" font-weight="600">${dia}</text>`;
-    });
-    
-    // labels dos valores - Luminosidade
-    const valoresLuz = [0, 250, 500, 750, 1000];
-    valoresLuz.forEach((valor, i) => {
-        const y = height - padding - ((valor / 1000) * (height - 2 * padding));
-        svg.innerHTML += `<text x="10" y="${y + 5}" font-size="12" fill="#fbbf24" font-weight="500">${valor}</text>`;
+        svg.innerHTML += `<text x="${x}" y="${height - 15}" text-anchor="middle" font-size="15" fill="#9ca3af" font-weight="600">${dia}</text>`;
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    desenharGraficoHistorico();
-    
-    // redesenhar quando a janela for redimensionada
-    window.addEventListener('resize', () => {
-        desenharGraficoHistorico();
-    });
-});
