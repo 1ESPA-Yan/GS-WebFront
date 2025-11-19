@@ -1561,6 +1561,63 @@ body.dark .taxa-badge {
     cursor: pointer;
 }
 
+/* tema escuro */
+
+/* garantir que os textos dos cards de matching permaneçam visíveis no dark mode */
+body.dark .match-card {
+    background: linear-gradient(135deg, #374151, #1f2937);
+    border-color: #10b981;
+}
+
+body.dark .match-nome,
+body.dark .profissao-nome {
+    color: #f9fafb !important;
+}
+
+body.dark .match-cargo,
+body.dark .profissao-descricao {
+    color: #e5e7eb !important;
+}
+
+body.dark .match-info,
+body.dark .profissao-info {
+    color: #d1d5db !important;
+}
+
+body.dark .profissao-card {
+    background-color: #374151;
+    border-color: #60a5fa;
+}
+
+body.dark .status-online {
+    background-color: #065f46;
+    color: #d1fae5;
+}
+
+body.dark .nivel-badge.nivel-senior {
+    background-color: #92400e;
+    color: #fef3c7;
+}
+
+body.dark .nivel-badge.nivel-pleno {
+    background-color: #1e40af;
+    color: #dbeafe;
+}
+
+body.dark .nivel-badge.nivel-junior {
+    background-color: #4b5563;
+    color: #f3f4f6;
+}
+
+body.dark .badge-crescimento {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+
+body.dark .skill-mini {
+    background-color: #1e3a8a;
+    color: #dbeafe;
+}
+
 /* FOOTER */
 .footer {
     background: linear-gradient(135deg, var(--azul-escuro), #1e3a8a);
